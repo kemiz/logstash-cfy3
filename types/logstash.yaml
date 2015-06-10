@@ -5,11 +5,13 @@
 # these types are mapped to scripts that are resposible
 # for the lifecycle operation.
 ################################################################
+imports:
+  - https://raw.githubusercontent.com/kemiz/salt-master-cfy3/3.2m8/types/salt.yaml
 
 node_types:
 
   logstash.nodes.Logstash:
-    derived_from: cloudify.nodes.SoftwareComponent
+    derived_from: salt.nodes.SaltMinion
     properties:
       input_plugin:
         description: input plugin
@@ -19,11 +21,6 @@ node_types:
         type: string
     interfaces:
       cloudify.interfaces.lifecycle:
-        create: 
-          implementation: script.script_runner.tasks.run
-          inputs:
-            script_path:
-              default: https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2m8/scripts/install-logstash.sh
         start:
           implementation: script.script_runner.tasks.run
           inputs:

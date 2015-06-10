@@ -53,6 +53,7 @@ node_templates:
   logstash:
     type: logstash.nodes.Logstash
     properties:
+      state_name: "example salt state"
       input_plugin: { get_input: logstash_input_plugin }
       output_plugin: { get_input: logstash_output_plugin }      
     relationships:
