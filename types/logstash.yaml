@@ -10,6 +10,13 @@ node_types:
 
   logstash.nodes.Logstash:
     derived_from: cloudify.nodes.SoftwareComponent
+    properties:
+      input_plugin:
+        description: input plugin
+        type: string
+      output_plugin:
+        description: output plugin
+        type: string
     interfaces:
       cloudify.interfaces.lifecycle:
         create: 
