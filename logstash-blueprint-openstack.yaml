@@ -26,21 +26,27 @@ inputs:
     description: >
       User for connecting to agent VM's
 
-  logstash_input_plugin:
+  logstash_inbound_port:
+    default: 4560
     description: >
-      User for connecting to agent VM's
+      Configuration filename
 
-  logstash_output_plugin:
+  logstash_outbound_port:
+    default: 9200
     description: >
-      User for connecting to agent VM's
+      logstash outbound port
 
-  logstash_input_port:
+  logstash_config_filepath:
     description: >
-      User for connecting to agent VM's
+      logstash inbound port
 
-  logstash_output_port:
+  logstash_config_filename:
     description: >
-      User for connecting to agent VM's
+      Configuration filename
+
+  logstash_config_filepath:
+    description: >
+      Configuration file path
 
 node_templates:
 
@@ -53,8 +59,8 @@ node_templates:
   logstash:
     type: logstash.nodes.Logstash
     properties:
-      input_plugin: { get_input: logstash_input_plugin }
-      output_plugin: { get_input: logstash_output_plugin }      
+      conf_filepath: { get_input: logstash_config_filepath }
+      conf_filename: { get_input: logstash_config_filename }
     relationships:
       - type: cloudify.relationships.contained_in
         target: logstash_host
@@ -64,7 +70,7 @@ node_templates:
   # using the port of the logstash node.
   #
   # We need this so that applications can
-  # comminicate with logstash, since they are running on
+  # communicate with logstash, since they are running on
   # different hosts.
   ###########################################################
 
@@ -75,6 +81,6 @@ node_templates:
         name: logstash_security_group
       rules:
         - remote_ip_prefix: 0.0.0.0/0
-          port: { get_input: logstash_input_port }
+          port: { get_input: logstash_inbound_port }
         - remote_ip_prefix: 0.0.0.0/0
-          port: { get_input: logstash_output_port }
+          port: { get_input: logstash_outbound_port }
