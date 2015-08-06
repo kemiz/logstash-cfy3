@@ -29,16 +29,12 @@ inputs:
   logstash_inbound_port:
     default: 4560
     description: >
-      Configuration filename
+      logstash inbound port
 
   logstash_outbound_port:
     default: 9200
     description: >
       logstash outbound port
-
-  logstash_config_filepath:
-    description: >
-      logstash inbound port
 
   logstash_config_filename:
     description: >

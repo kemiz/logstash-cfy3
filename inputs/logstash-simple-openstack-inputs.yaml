@@ -1,0 +1,7 @@
+image: '55aa4df7-1996-4507-955f-30f72d970836'
+flavor: 102
+agent_user: 'ubuntu'
+logstash_inbound_port: 4560
+logstash_outbound_port:
+logstash_config_filepath: 'https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2/logstash-config/simple.conf'
+logstash_config_filename: 'simple.conf'
