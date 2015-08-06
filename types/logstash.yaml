@@ -11,11 +11,11 @@ node_types:
   logstash.nodes.Logstash:
     derived_from: cloudify.nodes.SoftwareComponent
     properties:
-      input_plugin:
-        description: input plugin
+      conf_filepath:
+        description: path to the conf file to start logstash with
         type: string
-      output_plugin:
-        description: output plugin
+      conf_filename:
+        description: configuration filename
         type: string
     interfaces:
       cloudify.interfaces.lifecycle:
