@@ -1,6 +1,10 @@
-image: '55aa4df7-1996-4507-955f-30f72d970836'
+#ubuntu
+#image: '55aa4df7-1996-4507-955f-30f72d970836'
+#centos
+image: 'a2859f14-ea12-55e7-8e39-cec9b59e56fb'
 flavor: 102
-agent_user: 'ubuntu'
+#agent_user: 'ubuntu'
+agent_user: 'centos'
 logstash_inbound_port: 4560
 logstash_outbound_port:
 logstash_config_filepath: 'https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2/logstash-config/simple.conf'
