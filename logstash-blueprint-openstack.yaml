@@ -52,6 +52,12 @@ node_templates:
       - target: logstash_security_group
         type: cloudify.openstack.server_connected_to_security_group
 
+  java:
+    type: logstash.nodes.Java
+    relationships:
+      - type: cloudify.relationships.contained_in
+        target: logstash_host
+
   logstash:
     type: logstash.nodes.Logstash
     properties:
@@ -60,7 +66,8 @@ node_templates:
     relationships:
       - type: cloudify.relationships.contained_in
         target: logstash_host
-
+      - type: cloudify.relationships.depends_on
+        target: java
   ###########################################################
   # A security group to enable access to the logstash host
   # using the port of the logstash node.
