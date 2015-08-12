@@ -10,7 +10,7 @@ imports:
   - http://www.getcloudify.org/spec/openstack-plugin/1.2/plugin.yaml
   - http://www.getcloudify.org/spec/diamond-plugin/1.2/plugin.yaml
   - https://raw.githubusercontent.com/kemiz/monitored-server-cfy3/master/types/monitored-server-types.yaml
-  - https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2-app-dependecy-modelling/types/logstash.yaml
+  - types/logstash.yaml
 
 inputs:
 
