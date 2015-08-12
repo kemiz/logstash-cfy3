@@ -13,9 +13,8 @@ if [[ ! -z $YUM_CMD ]]; then
    ctx logger info "Java installed succesfully"
 
    sudo rpm --import https://packages.elasticsearch.org/GPG-KEY-elasticsearch
-   cd /etc/yum.repos.d/
-   sudo wget https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2/logstash-config/logstash.repo .
-   sudo yum install logstash || exit $?
+   sudo curl https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2/logstash-config/logstash.repo | sudo tee /etc/yum.repos.d/logstash.repo
+   sudo yum install -y logstash || exit $?
 else
    sudo apt-get update
    sudo apt-get -f install libdevmapper-event1.02.1
