@@ -1,3 +1,2 @@
 #!/bin/bash
-
-#  TODO
+sudo service logstash stop
