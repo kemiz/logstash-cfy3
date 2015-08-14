@@ -10,6 +10,7 @@ imports:
   - http://www.getcloudify.org/spec/openstack-plugin/1.2/plugin.yaml
   - http://www.getcloudify.org/spec/diamond-plugin/1.2/plugin.yaml
   - https://raw.githubusercontent.com/kemiz/monitored-server-cfy3/master/types/monitored-server-types.yaml
+  - https://raw.githubusercontent.com/kemiz/java-cfy3/3.2/types/java.yaml
   - types/logstash.yaml
 
 inputs:
@@ -53,7 +54,7 @@ node_templates:
         type: cloudify.openstack.server_connected_to_security_group
 
   java:
-    type: logstash.nodes.Java
+    type: java.nodes.Java
     relationships:
       - type: cloudify.relationships.contained_in
         target: logstash_host

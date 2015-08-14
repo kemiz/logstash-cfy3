@@ -7,15 +7,6 @@
 ################################################################
 
 node_types:
-  logstash.nodes.Java:
-    derived_from: cloudify.nodes.ApplicationModule
-    interfaces:
-      cloudify.interfaces.lifecycle:
-        create:
-          implementation: script.script_runner.tasks.run
-          inputs:
-            script_path:
-              default: https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2-app-dependecy-modelling/scripts/install-java.sh
 
   logstash.nodes.Logstash:
     derived_from: cloudify.nodes.ApplicationModule
@@ -32,7 +23,7 @@ node_types:
           implementation: script.script_runner.tasks.run
           inputs:
             script_path:
-              default: https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2/scripts/install-logstash.sh
+              default: https://raw.githubusercontent.com/kemiz/logstash-cfy3/3.2-app-dependecy-modelling/scripts/install-logstash.sh
         start:
           implementation: script.script_runner.tasks.run
           inputs:
